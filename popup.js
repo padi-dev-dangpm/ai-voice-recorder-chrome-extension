@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
 	const openBtn = document.querySelector(".open-btn");
 	const closeBtn = document.querySelector(".close-btn");
-	const showTextBtn = document.querySelector(".show-text-btn");
 
 	const p = document.querySelector(".show-state");
 
@@ -17,13 +16,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 		});
 	});
 
-	showTextBtn.addEventListener("click", async () => {
-		const data = await new Promise((resolve) => {
-			chrome.storage.sync.get(["text"], (obj) => {
-				resolve(obj["text"] ? obj["text"] : []);
-			});
+	const data = await new Promise((resolve) => {
+		chrome.storage.sync.get(["text"], (obj) => {
+			resolve(obj["text"] ? obj["text"] : []);
 		});
-
-		p.innerHTML = `You just said: ${data}`;
 	});
+
+	p.innerHTML = `You just said: ${data}`;
 });
