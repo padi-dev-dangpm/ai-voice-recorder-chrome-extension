@@ -38,13 +38,13 @@ const parts = [];
 				"button",
 				{
 					backgroundColor: "#e1d9d9",
-					padding: '16px',
-					fontSize: '14px',
+					padding: "16px",
+					fontSize: "14px",
 					fontWeight: 600,
-					border: 'none',
-					borderRadius: '12px',
-					cursor: 'pointer',
-					color: '#e43030',
+					border: "none",
+					borderRadius: "12px",
+					cursor: "pointer",
+					color: "#e43030",
 					position: "absolute",
 					left: "15px",
 					bottom: "30px",
@@ -106,7 +106,7 @@ const parts = [];
 
 const handleSave = async (file) => {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/facebook/wav2vec2-base-960h",
+		"https://api-inference.huggingface.co/models/nguyenvulebinh/wav2vec2-base-vietnamese-250h",
 		{
 			headers: {
 				Authorization: "Bearer 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",
