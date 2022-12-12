@@ -1,7 +1,7 @@
 {
-  "name": "My YT Bookmarks",
+  "name": "My recorder voice",
   "version": "0.1.0",
-  "description": "Saving timestamps in YT videos",
+  "description": "Record voice of users",
   "permissions": ["storage", "tabs"],
   "host_permissions": ["*://*/*"],
   "background": {
@@ -16,21 +16,20 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "assets/bookmark.png",
-        "assets/play.png",
-        "assets/delete.png",
-        "assets/save.png"
+        "assets/podcast.png",
+        "assets/microphone-black.png",
+        "assets/podcast.gif"
       ],
       "matches": ["*://*/*"]
     }
   ],
   "action": {
     "default_icon": {
-      "16": "assets/ext-icon.png",
-      "24": "assets/ext-icon.png",
-      "32": "assets/ext-icon.png"
+      "16": "assets/microphone.png",
+      "24": "assets/microphone.png",
+      "32": "assets/microphone.png"
     },
-    "default_title": "My YT Bookmarks",
+    "default_title": "My recorder voice",
     "default_popup": "popup.html"
   },
   "manifest_version": 3

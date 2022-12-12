@@ -37,10 +37,15 @@ const parts = [];
 			const wrapper = createElement(
 				"button",
 				{
-					background: "white",
+					backgroundColor: "#e1d9d9",
+					padding: '16px',
+					fontSize: '14px',
+					fontWeight: 600,
+					border: 'none',
+					borderRadius: '12px',
+					cursor: 'pointer',
+					color: '#e43030',
 					position: "absolute",
-					width: "200px",
-					height: "30px",
 					left: "15px",
 					bottom: "30px",
 					textAlign: "center",
@@ -66,6 +71,7 @@ const parts = [];
 				video: false,
 			});
 			mediaRecorder = new MediaRecorder(stream);
+
 			if (mediaRecorder.state != "inactive") {
 				mediaRecorder.stop();
 			}
