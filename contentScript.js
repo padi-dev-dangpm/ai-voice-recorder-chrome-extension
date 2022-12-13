@@ -106,7 +106,7 @@ const parts = [];
 
 const handleSave = async (file) => {
 	const response = await fetch(
-		"https://api-inference.huggingface.co/models/facebook/wav2vec2-base-960h",
+		"https://api-inference.huggingface.co/models/ai-project/wav2vec2-xlsr-large-vi-aiclass-20221-group-8",
 		{
 			headers: {
 				Authorization: "Bearer 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",
