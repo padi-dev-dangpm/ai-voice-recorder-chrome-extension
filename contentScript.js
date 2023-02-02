@@ -125,7 +125,9 @@ const handleSave = async (file) => {
   });
   try {
     // console.log("Is Copy");
+    handleUIShowWord(result.text);
     copyWord(result.text);
+    removeUIShowWord();
   } catch (err) {
     // console.log(err.message);
   }
@@ -144,7 +146,7 @@ function handleUIShowWord(word) {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			background-color: rgba(0, 0, 0, 0.3);
+			background-color: rgba(0, 0, 0, 0.5);
 			opacity: 0;
 			transition: opacity ease 0.6s;
 		}
@@ -155,6 +157,14 @@ function handleUIShowWord(word) {
 
     .title {
       font-size: 28px;
+      margin: 0 0 20px 0;
+    }
+
+    .word {
+      text-align: center;
+			font-size: 20px;
+      letter-spacing: 0.1px;
+      line-height: 1.4;
     }
 
 		.modal-content {
@@ -162,12 +172,11 @@ function handleUIShowWord(word) {
 			max-width: calc(100% - 64px);
 			min-height: 160px;
 			display: flex;
-      flex-direction: column;
 			justify-content: center;
 			align-items: center;
+      padding: 16px 32px;
 			background-color: #fff;
       border-radius: 20px;
-			font-size: 24px;
 			font-weight: 600;
 			transform: translateY(-180px);
 			opacity: 0;
@@ -178,6 +187,18 @@ function handleUIShowWord(word) {
 			transform: translateY(0);
 			opacity: 1;
 		}
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .caption-img {
+      width: 30%;
+    }
 	`;
   newStyleTag.innerHTML = innerNewStyleText;
   head.appendChild(newStyleTag);
@@ -185,12 +206,17 @@ function handleUIShowWord(word) {
   const body = document.querySelector("body");
   const modal = document.createElement("div");
   modal.classList.add("modal");
+  imgSrc = chrome.runtime.getURL('assets/podcast.gif')
   modal.innerHTML = `
 		<div class="modal-content">
-      <p class="title">You just said:</p>
-      ${word}
+      <img class="caption-img" src="${imgSrc}" alt="Caption">
+      <div class="content">
+        <p class="title">You just said:</p>
+        <span class="word">${word}</span>
+      </div>
     </div>
 	`;
+
   body.appendChild(modal);
   const modalContent = document.querySelector(".modal-content");
 
@@ -215,7 +241,5 @@ function removeUIShowWord() {
 
 function copyWord(word) {
   navigator.clipboard.writeText(word);
-  handleUIShowWord(word);
-  removeUIShowWord();
   // alert("Copied the text: " + word);
 }
