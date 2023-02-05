@@ -126,8 +126,10 @@ const handleSave = async (file) => {
   try {
     // console.log("Is Copy");
     handleUIShowWord(result.text);
-    copyWord(result.text);
     removeUIShowWord();
+    setTimeout(() => {
+      copyWord(result.text);
+    }, 7000)
   } catch (err) {
     // console.log(err.message);
   }
